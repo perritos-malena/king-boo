@@ -1,4 +1,7 @@
+const path = require(`path`)
+
 module.exports = {
+  pathPrefix: "/perritos-malena",
   siteMetadata: {
     title: "Gatsby Starter - Forty V2",
     author: "Hunter Chang",
@@ -18,6 +21,15 @@ module.exports = {
         icon: 'src/assets/images/website-icon.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src/assets`, `images`),
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
     'gatsby-plugin-offline'
   ],
